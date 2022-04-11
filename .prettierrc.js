@@ -1,5 +1,4 @@
-{
-    "arrowParens": "avoid",
+module.exports = {
     "bracketSpacing": true,
     "endOfLine": "auto",
     "insertPragma": false,
