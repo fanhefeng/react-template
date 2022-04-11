@@ -1,6 +1,6 @@
 import { useAccount, useBalance, useNetwork } from "wagmi";
 
-import Abi from "../abis/abi";
+import Abi from "../abis/Abi";
 
 const useWagmi = () => {
   const contractConfig = {

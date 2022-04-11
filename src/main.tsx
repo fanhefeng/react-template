@@ -24,7 +24,8 @@ const defaultChain = chain.rinkeby; // Change to mainnet for production
 type ConnectorsConfig = { chainId?: number };
 const connectors = ({ chainId }: ConnectorsConfig) => {
   const rpcUrl =
-    chains.find(x => x.id === chainId)?.rpcUrls?.[0] ?? defaultChain.rpcUrls[0];
+    chains.find((x) => x.id === chainId)?.rpcUrls?.[0] ??
+    defaultChain.rpcUrls[0];
   return [
     new InjectedConnector({ chains }),
     new WalletConnectConnector({
@@ -45,7 +46,7 @@ const connectors = ({ chainId }: ConnectorsConfig) => {
 // Set up providers
 type ProviderConfig = { chainId?: number; connector?: Connector };
 const isChainSupported = (chainId?: number) =>
-  chains.some(x => x.id === chainId);
+  chains.some((x) => x.id === chainId);
 
 // Set up providers
 const provider = ({ chainId }: ProviderConfig) =>
