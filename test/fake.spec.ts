@@ -1,5 +1,10 @@
-export {};
+import {expect} from "chai";
 
-test("some test should succeed", () => {
-  expect(true).toBeTruthy();
+describe("unit test suite", () => {
+  before(() => {
+    // set up test suite
+  });
+  it("should add one to one", () => {
+    expect(1 + 1).to.equal(2);
+  });
 });
