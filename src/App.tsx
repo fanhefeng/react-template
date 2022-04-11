@@ -15,12 +15,6 @@ export const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
       </Routes>
-<<<<<<< HEAD
-      </BrowserRouter>
-  )
-}
-=======
     </BrowserRouter>
   );
 };
->>>>>>> 9e7cdfcea200d8044898da348d966d2fce8e6f33
