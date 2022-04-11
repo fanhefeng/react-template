@@ -6,18 +6,18 @@ const Connect = () => {
     {
       data: { connector, connectors },
       error,
-      loading,
+      loading
     },
-    connect,
+    connect
   ] = useConnect();
 
   return (
     <div>
       <div>
-        {connectors.map((x) => (
+        {connectors.map(x => (
           <button
             className="btn"
-            disabled={!x.ready} 
+            disabled={!x.ready}
             key={x.name}
             onClick={() => connect(x)}
           >

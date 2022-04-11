@@ -8,7 +8,7 @@ const NetworkSwitcher = () => {
   return (
     <div>
       {switchNetwork &&
-        networkData.chains.map((x) =>
+        networkData.chains.map(x =>
           x.id === networkData.chain?.id ? null : (
             <button
               className="btn"

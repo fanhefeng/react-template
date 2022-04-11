@@ -1,7 +1,7 @@
-import { useAccount, useBalance, useConnect } from 'wagmi'
-import { shortenAddress } from '../utils/shortenAddress'
-import { WalletModal, Loader } from './'
-import Logo from '../assets/logo.svg'
+import { useAccount, useBalance, useConnect } from "wagmi";
+import { shortenAddress } from "../utils/shortenAddress";
+import { WalletModal, Loader } from "./";
+import Logo from "../assets/logo.svg";
 
 const Navbar = () => {
   const [
@@ -11,15 +11,15 @@ const Navbar = () => {
       loading
     },
     connect
-  ] = useConnect()
+  ] = useConnect();
 
   const [{ data: accountData }, disconnect] = useAccount({
     fetchEns: true
-  })
+  });
 
   const [{ data }, getBalance] = useBalance({
     addressOrName: accountData?.address
-  })
+  });
 
   return (
     <>
@@ -48,10 +48,7 @@ const Navbar = () => {
                   className="p-2 text-primary shadow menu dropdown-content bg-white w-52"
                 >
                   <li>
-                    <a
-                      className="btn btn-ghost btn-sm rounded-btn"
-                      href="/"
-                    >
+                    <a className="btn btn-ghost btn-sm rounded-btn" href="/">
                       Home
                     </a>
                   </li>
@@ -93,16 +90,24 @@ const Navbar = () => {
                   <div className="mx-2 hidden badge-neutral badge-lg rounded-full lg:block">
                     {Number(data?.formatted).toFixed(4)} {data?.symbol}
                   </div>
-                ) : (<Loader />)}
+                ) : (
+                  <Loader />
+                )}
 
                 <div className="mx-2 hidden badge-neutral badge-lg rounded-full lg:block">
                   <div>
-                    {accountData?.ens?.name ?? shortenAddress(accountData?.address)}
-                    {accountData?.ens ? ` (${shortenAddress(accountData?.address)})` : null}
+                    {accountData?.ens?.name ??
+                      shortenAddress(accountData?.address)}
+                    {accountData?.ens
+                      ? ` (${shortenAddress(accountData?.address)})`
+                      : null}
                   </div>
 
                   {accountData?.ens?.avatar && (
-                    <img src={accountData.ens.avatar} style={{ height: 40, width: 40 }} />
+                    <img
+                      src={accountData.ens.avatar}
+                      style={{ height: 40, width: 40 }}
+                    />
                   )}
                 </div>
                 <div>
@@ -130,7 +135,7 @@ const Navbar = () => {
         <WalletModal />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

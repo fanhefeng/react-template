@@ -1,4 +1,4 @@
-import { WalletModal, Footer, Welcome } from '../components'
+import { WalletModal, Footer, Welcome } from "../components";
 
 const Home = () => {
   return (
@@ -6,7 +6,7 @@ const Home = () => {
       <Welcome />
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

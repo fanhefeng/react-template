@@ -8,9 +8,9 @@ const WalletModal = () => {
     {
       data: { connector, connectors },
       error,
-      loading,
+      loading
     },
-    connect,
+    connect
   ] = useConnect();
 
   return (
