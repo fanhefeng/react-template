@@ -93,13 +93,18 @@ const Navbar = () => {
                   <div className="mx-2 hidden badge-neutral badge-lg rounded-full lg:block">
                     {Number(data?.formatted).toFixed(4)} {data?.symbol}
                   </div>
-
                 ) : (<Loader />)}
 
                 <div className="mx-2 hidden badge-neutral badge-lg rounded-full lg:block">
-                  {shortenAddress(accountData?.address)}
-                </div>
+                  <div>
+                    {accountData?.ens?.name ?? shortenAddress(accountData?.address)}
+                    {accountData?.ens ? ` (${shortenAddress(accountData?.address)})` : null}
+                  </div>
 
+                  {accountData?.ens?.avatar && (
+                    <img src={accountData.ens.avatar} style={{ height: 40, width: 40 }} />
+                  )}
+                </div>
                 <div>
                   <div>
                     <button
