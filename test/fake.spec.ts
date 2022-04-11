@@ -1,5 +1,5 @@
-export {};
+import { expect } from "chai";
 
-test("some test should succeed", () => {
-  expect(true).toBeTruthy();
+it("should do some test that should pass", () => {
+  expect(true).to.be.true;
 });
