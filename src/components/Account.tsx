@@ -3,7 +3,7 @@ import { useAccount } from "wagmi";
 
 const Account = () => {
   const [{ data: accountData }, disconnect] = useAccount({
-    fetchEns: true,
+    fetchEns: true
   });
 
   if (!accountData) return <div>No account connected</div>;

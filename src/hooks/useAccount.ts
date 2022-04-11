@@ -1,15 +1,11 @@
-import {
-  useAccount,
-  useBalance,
-  useNetwork
-} from "wagmi";
+import { useAccount, useBalance, useNetwork } from "wagmi";
 
 import Abi from "../abis/abi";
 
 const useWagmi = () => {
   const contractConfig = {
     addressOrName: import.meta.env.VITE_CONTRACT_ADDRESS as string,
-    contractInterface: Abi,
+    contractInterface: Abi
   };
 
   const [{ data: networkData, error: switchNetworkError }, switchNetwork] =
@@ -17,18 +13,17 @@ const useWagmi = () => {
 
   const [
     { data: accountData, error: accountError, loading: accountLoading },
-    disconnect,
+    disconnect
   ] = useAccount({
-    fetchEns: false,
+    fetchEns: false
   });
 
   const [
     { data: balanceData, error: balanceError, loading: balanceLoading },
-    getBalance,
+    getBalance
   ] = useBalance({
-    addressOrName: accountData?.address,
+    addressOrName: accountData?.address
   });
-
 
   return {
     networkData,

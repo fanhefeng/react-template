@@ -9,7 +9,6 @@ const Welcome = () => {
         <div className="md:text-6xl text-4xl text-black text-center">
           Welcome!
         </div>
-
       </div>
     </div>
   );

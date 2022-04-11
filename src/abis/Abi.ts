@@ -1,4 +1,3 @@
-const Abi = [
-];
+const Abi = [];
 
 export default Abi;
