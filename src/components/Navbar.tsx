@@ -5,19 +5,16 @@ import Logo from "../assets/logo.svg";
 
 const Navbar = () => {
   const [
-    {
-      data: { connector, connectors },
-      error,
-      loading
-    },
-    connect
-  ] = useConnect();
-
-  const [{ data: accountData }, disconnect] = useAccount({
-    fetchEns: true
+    { data: accountData, error: accountError, loading: accountLoading },
+    disconnect
+  ] = useAccount({
+    fetchEns: false
   });
 
-  const [{ data }, getBalance] = useBalance({
+  const [
+    { data: balanceData, error: balanceError, loading: balanceLoading },
+    getBalance
+  ] = useBalance({
     addressOrName: accountData?.address
   });
 
@@ -86,9 +83,10 @@ const Navbar = () => {
           <div className="navbar-end">
             {accountData?.address ? (
               <>
-                {!accountData?.loading ? (
+                {!accountLoading ? (
                   <div className="mx-2 hidden badge-neutral badge-lg rounded-full lg:block">
-                    {Number(data?.formatted).toFixed(4)} {data?.symbol}
+                    {Number(balanceData?.formatted).toFixed(4)}{" "}
+                    {balanceData?.symbol}
                   </div>
                 ) : (
                   <Loader />
