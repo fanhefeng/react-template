@@ -14,7 +14,7 @@ const Connect = () => {
   return (
     <div>
       <div>
-        {connectors.map(x => (
+        {connectors.map((x) => (
           <button
             className="btn"
             disabled={!x.ready}
