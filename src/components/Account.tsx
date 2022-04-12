@@ -2,7 +2,7 @@ import * as React from "react";
 import { useAccount } from "wagmi";
 
 const Account = () => {
-  const [{ data: accountData }, disconnect] = useAccount({
+  const [{ data: accountData }] = useAccount({
     fetchEns: true
   });
 

@@ -6,9 +6,7 @@ import { WalletConnectIcon } from "../icons";
 const WalletModal = () => {
   const [
     {
-      data: { connector, connectors },
-      error,
-      loading
+      data: { connectors }
     },
     connect
   ] = useConnect();
