@@ -1,20 +1,15 @@
-import { useAccount, useBalance, useConnect } from "wagmi";
+import { useAccount, useBalance } from "wagmi";
 import { shortenAddress } from "../utils/shortenAddress";
 import { WalletModal, Loader } from "./";
 import Logo from "../assets/logo.svg";
 
 const Navbar = () => {
-  const [
-    { data: accountData, error: accountError, loading: accountLoading },
-    disconnect
-  ] = useAccount({
-    fetchEns: false
-  });
+  const [{ data: accountData, loading: accountLoading }, disconnect] =
+    useAccount({
+      fetchEns: false
+    });
 
-  const [
-    { data: balanceData, error: balanceError, loading: balanceLoading },
-    getBalance
-  ] = useBalance({
+  const [{ data: balanceData }] = useBalance({
     addressOrName: accountData?.address
   });
 

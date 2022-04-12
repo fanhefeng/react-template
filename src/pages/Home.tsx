@@ -1,4 +1,4 @@
-import { WalletModal, Footer, Welcome } from "../components";
+import { Footer, Welcome } from "../components";
 
 const Home = () => {
   return (
