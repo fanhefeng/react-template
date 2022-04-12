@@ -2,8 +2,8 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "types": ["vite/client", "vite-plugin-svgr/client", "mocha", "chai"],
-    "module": "CommonJS",
+    "types": ["vite/client", "vite-plugin-svgr/client"],
+    "module": "ESNext",
     "moduleResolution": "Node",
     "jsx": "react-jsx",
     "outDir": "./dist",
@@ -27,7 +27,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "strict": true,
     "strictBindCallApply": true,
     "strictNullChecks": true

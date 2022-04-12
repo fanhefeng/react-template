@@ -10,7 +10,7 @@
     "format": "prettier --write './'",
     "format-staged": "pretty-quick --staged",
     "postinstall": "husky install && yarn generate-contract-types",
-    "test": "mocha",
+    "test": "cross-env TS_NODE_PROJECT='./tsconfig.test.json' mocha",
     "generate-contract-types": "typechain --target ethers-v5 --out-dir ./src/contracts './src/abis/**/*.json'"
   },
   "dependencies": {
