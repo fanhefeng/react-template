@@ -5,7 +5,7 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview --port 3000",
-    "lint": "eslint . --ext .ts,.tsx,.js --fix",
+    "lint": "eslint . --ext .ts,.tsx,.js --fix --max-warnings 0",
     "format": "prettier --write './'",
     "format-staged": "pretty-quick --staged",
     "prepare": "husky install",
