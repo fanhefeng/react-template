@@ -8,7 +8,8 @@ Template for vite, React + tailwindcss + TypeScript projects with some tools pre
 
 ### Libraries
 
-- [Jest](https://jestjs.io/)
+- [Mocha](https://mochajs.org/)
+- [Chai](https://www.chaijs.com/)
 - [React](https://reactjs.org/)
 - [tailwindcss](https://tailwindcss.com/)
   - [daisyUI](https://daisyui.com/)

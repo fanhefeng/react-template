@@ -1,5 +1,10 @@
 import { expect } from "chai";
 
-it("should do some test that should pass", () => {
-  expect(true).to.be.true;
+describe("unit test suite", () => {
+  before(() => {
+    // set up test suite
+  });
+  it("should add one to one", () => {
+    expect(1 + 1).to.equal(2);
+  });
 });
