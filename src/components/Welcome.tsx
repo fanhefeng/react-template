@@ -1,12 +1,20 @@
+import { Loader } from "./";
+import ErrorMessage from "./ErrorMessage";
+import useSWR from "swr";
+
 const Welcome = () => {
+  const { data, error } = useSWR("https://api.coingecko.com/api/v3/ping");
+  const isLoading = !data && !error;
+
   return (
     <div
       id="Welcome"
-      className="gap-3 grid grid-cols-1 lg:grid-cols-4 pt-60 p-5 pb-20"
+      className="grid grid-cols-1 gap-3 p-5 pb-20 lg:grid-cols-4 pt-60"
     >
-      <div></div>
+      <ErrorMessage error={error} />
+      <div>{isLoading ? <Loader /> : <p>{data?.gecko_says}</p>}</div>
       <div className="col-span-2">
-        <div className="md:text-6xl text-4xl text-black text-center">
+        <div className="text-4xl text-center text-black md:text-6xl">
           Welcome!
         </div>
       </div>
