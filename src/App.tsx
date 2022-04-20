@@ -6,11 +6,13 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import { Buffer } from "buffer";
 import api from "./apis/api";
+import { AxiosError, AxiosResponse } from "axios";
 
 window.Buffer = Buffer;
 
 const swrConfig = {
-  fetcher: (url: string) => api.fetch.get(url).then((res) => res.data),
+  fetcher: (url: string): Promise<AxiosResponse | AxiosError> =>
+    api.fetch.get(url).then((res) => res.data),
   shouldRetryOnError: false
 };
 
