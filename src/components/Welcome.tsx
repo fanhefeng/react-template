@@ -3,6 +3,8 @@ import ErrorMessage from "./ErrorMessage";
 import useSWR from "swr";
 
 const Welcome = () => {
+  // This is just here as an example of how to use SWR
+  // Feel free to remove
   const { data, error } = useSWR("https://api.coingecko.com/api/v3/ping");
   const isLoading = !data && !error;
 
