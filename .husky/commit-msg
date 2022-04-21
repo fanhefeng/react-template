@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Husky commit message"
+echo "Running es-lint and prettier. See lint-staged config in package.json"
+yarn commitlint --edit $1
