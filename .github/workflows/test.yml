@@ -27,6 +27,7 @@ jobs:
       - run: yarn build
   test:
     runs-on: ubuntu-18.04
+    needs: build
     name: Test
     steps:
       - uses: actions/checkout@v2
