@@ -34,8 +34,10 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "14"
-      - run: yarn
-      - run: yarn test
+      - name: Run unit tests
+        run: |
+          yarn install
+          yarn test
       - name: Post coverage report
         uses: romeovs/lcov-reporter-action@v0.2.16
         with:
