@@ -62,7 +62,7 @@
   "nyc": {
     "exclude": [
       "test/**",
-      "src/typechain/**",
+      "src/contracts/**",
       "**/node_modules/**"
     ]
   }
