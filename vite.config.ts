@@ -4,8 +4,8 @@ import react from "@vitejs/plugin-react";
 import svgrPlugin from "vite-plugin-svgr";
 
 export default ({ mode }: UserConfig) => {
-  // mode is not null as UserConfig is an interface with all optional types
-  process.env = { ...process.env, ...loadEnv(mode!, process.cwd()) }; // eslint-disable-line no-non-null-assertion
+  // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
+  process.env = { ...process.env, ...loadEnv(mode!, process.cwd()) }; // mode is not null as UserConfig is an interface with all optional types
   
   return defineConfig({
     plugins: [
