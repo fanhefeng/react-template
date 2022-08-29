@@ -6,8 +6,7 @@ export const ApiContext = createContext<Api>(null as unknown as Api);
 export const ApiProvider: React.FC<{ children: React.ReactNode }> = ({
   children
 }) => {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const api = new Api(process.env.VITE_API_URL! as string, true);
+  const api = new Api(process.env.VITE_API_URL as string, true);
 
   return <ApiContext.Provider value={api}>{children}</ApiContext.Provider>;
 };
