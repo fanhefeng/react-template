@@ -23,10 +23,11 @@ const Erc20BalanceChecker: React.FC<Props> = ({
   const isValidChain = targetChainId === connectedChainId;
 
   useEffect(() => {
-    if (signer === undefined || signer.provider === undefined) return;
     (async () => {
+      if (signer === undefined || signer.provider === undefined) return;
+
       setSignerAddress(await signer.getAddress());
-      const network = await signer.provider!.getNetwork();
+      const network = await signer.provider.getNetwork();
       setConnectedChainId(network.chainId);
       const erc20 = Erc20__factory.connect(erc20Address, signer);
       setErc20(erc20);
