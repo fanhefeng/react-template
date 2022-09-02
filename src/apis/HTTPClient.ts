@@ -38,9 +38,9 @@ export default class HTTPClient {
     axiosReqConfig?: AxiosRequestConfig
   ): Promise<T> =>
     this.client
-      .get(url, axiosReqConfig)
+      .get<T>(url, axiosReqConfig)
       .then(this.onSuccess)
-      .catch(this.onError) as unknown as Promise<T>;
+      .catch(this.onError);
 
   protected post = <T>(
     url: string,
@@ -48,9 +48,9 @@ export default class HTTPClient {
     reqConfig?: AxiosRequestConfig
   ): Promise<T> =>
     this.client
-      .post(url, data, reqConfig)
+      .post<T>(url, data, reqConfig)
       .then(this.onSuccess)
-      .catch(this.onError) as unknown as Promise<T>;
+      .catch(this.onError);
 
   protected put = <T>(
     url: string,
@@ -58,9 +58,9 @@ export default class HTTPClient {
     axiosReqConfig?: AxiosRequestConfig
   ): Promise<T> =>
     this.client
-      .put(url, data, axiosReqConfig)
+      .put<T>(url, data, axiosReqConfig)
       .then(this.onSuccess)
-      .catch(this.onError) as unknown as Promise<T>;
+      .catch(this.onError);
 
   public setCustomOnError = (onError: (error: any) => void) => {
     this.customOnError = onError;
