@@ -9,9 +9,9 @@ export default class HTTPClient {
   private client: AxiosInstance;
   private customOnError: ((error: any) => void) | undefined;
 
-  constructor(baseUrl: string, secure: boolean) {
+  constructor(baseURL: string, secure: boolean) {
     this.client = axios.create({
-      baseURL: baseUrl,
+      baseURL,
       headers: {
         "Cache-Control": "no-store, no-cache, must-revalidate",
         Pragma: "no-cache",
