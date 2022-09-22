@@ -42,8 +42,10 @@ jobs:
     name: Lighthouse
     steps:
       - uses: actions/checkout@v2
+      - uses: browser-actions/setup-chrome@latest
       - uses: actions/setup-node@v1
         with:
           node-version: "16"
+      - run: chrome --version
       - run: yarn
-      - run: yarn lighthouse:remote
+      - run: yarn lighthouse
