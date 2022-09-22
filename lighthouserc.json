@@ -2,7 +2,7 @@
   "ci": {
     "collect": {
       "numberOfRuns": 3,
-      "url": ["UAT URL"],
+      "url": ["<<DEPLOYMENT_URL>>"],
       "isSinglePageApplication": true,
       "settings": {
         "onlyCategories": [

@@ -12,8 +12,8 @@
     "postinstall": "husky install && yarn generate-contract-types",
     "test": "cross-env TS_NODE_PROJECT='./tsconfig.test.json' nyc --reporter=lcov mocha",
     "generate-contract-types": "typechain --target ethers-v5 --out-dir ./src/contracts './src/abis/**/*.json'",
-    "lighthouse": "lhci autorun",
-    "lighthouse:local": "lhci autorun --config=lighthouserc.local.json"
+    "lighthouse": "lhci autorun --config=lighthouserc.local.json",
+    "lighthouse:remote": "lhci autorun"
   },
   "dependencies": {
     "react": "^17.0.2",
