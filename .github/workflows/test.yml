@@ -54,4 +54,5 @@ jobs:
           node-version: "14"
       - run: chrome --version
       - run: yarn
+      - run: yarn build
       - run: yarn lighthouse
