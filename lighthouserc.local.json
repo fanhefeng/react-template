@@ -2,9 +2,7 @@
   "ci": {
     "collect": {
       "numberOfRuns": 3,
-      "startServerCommand": "yarn serve",
-      "startServerReadyPattern": "Local:",
-      "url": ["http://localhost:3000"],
+      "staticDistDir": "./dist",
       "isSinglePageApplication": true,
       "settings": {
         "onlyCategories": [

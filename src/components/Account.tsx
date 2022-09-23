@@ -15,7 +15,11 @@ const Account = () => {
       </div>
 
       {accountData?.ens?.avatar && (
-        <img src={accountData.ens.avatar} style={{ height: 40, width: 40 }} />
+        <img
+          alt="avatar"
+          src={accountData.ens.avatar}
+          style={{ height: 40, width: 40 }}
+        />
       )}
     </div>
   );

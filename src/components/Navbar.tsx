@@ -55,7 +55,7 @@ const Navbar = () => {
                 </ul>
               </div>
             </button>
-            <img className="m-5 h-10 md:h-15" src={Logo} />
+            <img alt="logo" className="m-5 h-10 md:h-15" src={Logo} />
             <span className="text-lg font-sans">DLTx</span>
 
             <div className="hidden px-2 mx-2 navbar-start lg:flex">
