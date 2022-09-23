@@ -11,7 +11,9 @@
     "format-staged": "pretty-quick --staged",
     "postinstall": "husky install && yarn generate-contract-types",
     "test": "cross-env TS_NODE_PROJECT='./tsconfig.test.json' nyc --reporter=lcov mocha",
-    "generate-contract-types": "typechain --target ethers-v5 --out-dir ./src/contracts './src/abis/**/*.json'"
+    "generate-contract-types": "typechain --target ethers-v5 --out-dir ./src/contracts './src/abis/**/*.json'",
+    "lighthouse": "lhci autorun --config=lighthouserc.local.json",
+    "lighthouse:remote": "lhci autorun"
   },
   "dependencies": {
     "react": "^17.0.2",
@@ -22,6 +24,7 @@
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
     "@heroicons/react": "^1.0.5",
+    "@lhci/cli": "^0.9.0",
     "@tailwindcss/forms": "^0.4.0",
     "@typechain/ethers-v5": "^10.0.0",
     "@types/chai": "^4.3.0",
