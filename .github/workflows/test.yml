@@ -4,55 +4,40 @@ on:
     branches:
       - "*"
 jobs:
-  lint:
-    runs-on: ubuntu-18.04
-    name: Lint
+  build-and-test:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    name: Build and Test
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout Branch
+        uses: actions/checkout@v3
+      - name: Read package.json node and npm engines version
+        uses: skjnldsv/read-package-engines-version-actions@v1.2
+        id: package-engines-versions
+      - name: Show node version number
+        run: echo "Node version is ${{ steps.package-engines-versions.outputs.nodeVersion }}"
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.2.0
         with:
-          node-version: "14"
-      - run: yarn
-      - run: yarn lint
-  build:
-    runs-on: ubuntu-18.04
-    needs: lint
-    name: Build
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "14"
-      - run: yarn
-      - run: yarn build
-  test:
-    runs-on: ubuntu-18.04
-    needs: build
-    name: Test
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "14"
+          node-version: ${{ steps.package-engines-versions.outputs.nodeVersion }}
+      - name: Install Dependencies
+        run: yarn install
+        shell: bash
+      - name: Build App
+        run: yarn build
+        shell: bash
       - name: Run unit tests
-        run: |
-          yarn install
-          yarn test
+        run: yarn test
+        shell: bash
       - name: Post coverage report
         uses: romeovs/lcov-reporter-action@v0.2.16
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-  lighthouse:
-    runs-on: ubuntu-18.04
-    needs: build
-    name: Lighthouse
-    steps:
-      - uses: actions/checkout@v2
-      - uses: browser-actions/setup-chrome@latest
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "14"
-      - run: chrome --version
-      - run: yarn
-      - run: yarn build
-      - run: yarn lighthouse
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@latest
+      - name: Run Chrome
+        run: chrome --version
+        shell: bash
+      - name: Run Lighthouse
+        run: yarn lighthouse
+        shell: bash
