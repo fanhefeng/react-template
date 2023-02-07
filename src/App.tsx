@@ -1,8 +1,9 @@
 import { Navbar } from "./components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
 import { Buffer } from "buffer";
+import { Suspense } from "react";
+import Transition from "./pages/Transition";
+import Routing, { NotFound } from "./Routing";
 
 window.Buffer = Buffer;
 
@@ -10,10 +11,15 @@ export const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      <Suspense fallback={<Transition />}>
+        <Routes>
+          {Routing.map(({ path, element, props }) => (
+            <Route path={path} element={element} {...props} />
+          ))}
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 };
