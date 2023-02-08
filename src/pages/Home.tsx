@@ -1,11 +1,11 @@
-import { Footer, Welcome } from "../components";
+import { Footer, PageLayout, Welcome } from "../components";
 
 const Home = () => {
   return (
-    <>
+    <PageLayout>
       <Welcome />
       <Footer />
-    </>
+    </PageLayout>
   );
 };
 

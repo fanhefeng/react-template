@@ -1,10 +1,10 @@
-import { About as Page } from "../components";
+import { About as Page, PageLayout } from "../components";
 
 const About = () => {
   return (
-    <>
+    <PageLayout>
       <Page />
-    </>
+    </PageLayout>
   );
 };
 
