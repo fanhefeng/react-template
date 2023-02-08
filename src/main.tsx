@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import { providers } from "ethers";
 
 // Imports
@@ -63,7 +63,7 @@ const webSocketProvider = ({ chainId }: ConnectorsConfig) =>
     ? new providers.InfuraWebSocketProvider(chainId, infuraId)
     : undefined;
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <Provider
       autoConnect
@@ -73,6 +73,5 @@ ReactDOM.render(
     >
       <App />
     </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
